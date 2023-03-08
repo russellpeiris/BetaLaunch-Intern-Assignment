@@ -7,8 +7,8 @@ const router = Router();
 
 router.get('/', getAll);
 router.post('/create', createEmployee);
-router.get('/:empID', getEmployee);
-router.patch('/update/:empID', updateEmployee);
-router.delete('/:empID', deleteEmployee);
+router.get('/:id', getEmployee);
+router.patch('/update/:id', updateEmployee);
+router.delete('/:id', deleteEmployee);
 
 export default router;

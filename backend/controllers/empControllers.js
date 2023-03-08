@@ -21,12 +21,12 @@ export const getAll = async (req, res) => {
   }
 };
 
-// get employee by the custom id
+// get employee by the id
 export const getEmployee = async (req, res) => {
-  const { empID } = req.params;
+  const { id } = req.params;
 
   try {
-    const employee = await Employee.findOne({ empID });
+    const employee = await Employee.findById(id);
 
     if (!employee) {
       return res.status(404).send('Employee does not exist');
@@ -39,12 +39,12 @@ export const getEmployee = async (req, res) => {
 
 // update employee by the id
 export const updateEmployee = async (req, res) => {
-  const { empID } = req.params;
+  const { id } = req.params;
   const { designation, empType, exp } = req.body;
 
   try {
-    const employee = await Employee.findOneAndUpdate(
-      { empID },
+    const employee = await Employee.findByIdAndUpdate(
+      id,
       {
         designation,
         empType,
@@ -65,14 +65,14 @@ export const updateEmployee = async (req, res) => {
 
 // delete employee by the id
 export const deleteEmployee = async (req, res) => {
-  const { empID } = req.params;
+  const { id } = req.params;
 
   try {
-    const employee = await Employee.findOneAndDelete({ empID });
+    const employee = await Employee.findByIdAndDelete(id);
     if (!employee) {
       return res.status(404).send('Employee does not exist');
     }
-    return res.status(200).send(`Employee with empID: ${empID} deleted successfully`);
+    return res.status(200).send(`Employee with empID: ${id} deleted successfully`);
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
