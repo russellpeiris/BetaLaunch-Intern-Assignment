@@ -72,7 +72,7 @@ export const deleteEmployee = async (req, res) => {
     if (!employee) {
       return res.status(404).send('Employee does not exist');
     }
-    return res.status(200).send(`Employee with empID: ${id} deleted successfully`);
+    return res.status(200).send(`Employee with ID: ${id} deleted successfully`);
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

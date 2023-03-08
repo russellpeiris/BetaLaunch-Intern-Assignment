@@ -4,14 +4,14 @@ const employeeSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Full Name is required'],
-    minlength: [10, 'Name must be at least 3 characters'],
+    minlength: [3, 'Name must be at least 3 characters'],
     maxlength: [50, 'Name must not exceed 40 characters'],
   },
   initials: {
     type: String,
     required: [true, 'Name with intials are required'],
-    minlength: [3, 'Must be at least 3 characters'],
-    maxlength: [4, 'Must not exceed 20 characters'],
+    minlength: [2, 'Must be at least 2 characters'],
+    maxlength: [20, 'Must not exceed 20 characters'],
   },
   displayName: {
     type: String,
