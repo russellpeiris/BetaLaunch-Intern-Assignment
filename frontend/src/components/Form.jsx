@@ -77,6 +77,7 @@ function Form({ handleChange, handleSubmit, empData }) {
         type="text"
         onFocus={(e) => (e.target.type = 'date')}
         onBlur={(e) => (e.target.type = 'text')}
+        required
       />
 
       <Field
@@ -85,6 +86,7 @@ function Form({ handleChange, handleSubmit, empData }) {
         onChange={handleChange}
         placeholder="Email"
         type="email"
+        required
       />
 
       <Field
@@ -94,6 +96,7 @@ function Form({ handleChange, handleSubmit, empData }) {
         placeholder="07X-XXX-XXXX"
         type="tel"
         maxLength={10}
+        required
       />
 
       <Field
@@ -101,11 +104,13 @@ function Form({ handleChange, handleSubmit, empData }) {
         value={empData.designation}
         onChange={handleChange}
         placeholder="Designation"
+        required
       />
       <Select
         name="empType"
         value={empData.empType}
         onChange={handleChange}
+        required
       >
         <option value="">--Select Employee Type--</option>
         <option value="Full Time">Full Time</option>
@@ -121,11 +126,13 @@ function Form({ handleChange, handleSubmit, empData }) {
         onChange={handleChange}
         onFocus={(e) => (e.target.type = 'date')}
         onBlur={(e) => (e.target.type = 'text')}
+        required
       />
       <Select
         name="exp"
         value={empData.exp}
         onChange={handleChange}
+        required
       >
         <option value="">--Select Experience--</option>
         <option value="Less than 1 Year">0 - 1</option>
@@ -139,6 +146,7 @@ function Form({ handleChange, handleSubmit, empData }) {
         value={empData.salary}
         onChange={handleChange}
         placeholder="Salary"
+        required
       />
 
       <TextArea

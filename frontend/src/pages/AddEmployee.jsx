@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
@@ -94,6 +95,7 @@ function AddEmployee({ onClose, selectedId }) {
       window.location.reload();
     } catch (err) {
       console.log(err);
+      alert('Failed to add employee!');
     }
   };
 
