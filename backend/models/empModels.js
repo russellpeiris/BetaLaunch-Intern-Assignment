@@ -24,11 +24,22 @@ const employeeSchema = new mongoose.Schema({
   },
   dob: {
     type: Date,
+    get(date) {
+      return date.toLocaleDateString('en-GB');
+    },
+    set(dateString) {
+      return new Date(dateString);
+    },
     required: [true, 'Date of Birth is required'],
   },
   email: {
     type: String,
     required: [true, 'Email is required'],
+    unique: true,
+  },
+  mobile: {
+    type: String,
+    required: [true, 'Mobile Number is required'],
     unique: true,
   },
   designation: {
@@ -37,11 +48,16 @@ const employeeSchema = new mongoose.Schema({
   },
   empType: {
     type: String,
-    enum: ['Full Time', 'Part Time', 'Contract Basis', 'Other'],
     required: [true, 'Employee Type is required'],
   },
   joinedDate: {
     type: Date,
+    get(date) {
+      return date.toLocaleDateString('en-GB');
+    },
+    set(dateString) {
+      return new Date(dateString);
+    },
     required: [true, 'Joined Date is required'],
   },
   exp: {

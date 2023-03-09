@@ -40,15 +40,39 @@ export const getEmployee = async (req, res) => {
 // update employee by the id
 export const updateEmployee = async (req, res) => {
   const { id } = req.params;
-  const { designation, empType, exp } = req.body;
+  const {
+    name,
+    initials,
+    displayName,
+    gender,
+    dob,
+    email,
+    mobile,
+    designation,
+    empType,
+    joinedDate,
+    exp,
+    salary,
+    note,
+  } = req.body;
 
   try {
     const employee = await Employee.findByIdAndUpdate(
       id,
       {
+        name,
+        initials,
+        displayName,
+        gender,
+        dob,
+        email,
+        mobile,
         designation,
         empType,
+        joinedDate,
         exp,
+        salary,
+        note,
       },
       {
         new: true,
